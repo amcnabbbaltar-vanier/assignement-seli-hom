@@ -9,6 +9,8 @@ public class PauseScript : MonoBehaviour
     
     private bool isPaused = false;
 
+
+
     // Update is called once per frame
     void Update()
     {
@@ -46,6 +48,9 @@ public class PauseScript : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1.0f;
+        //DontDestroyOnLoad(GameManager.Instance);
+        GameManager.Instance.scoreText.text = "Score: 0";
+        DontDestroyOnLoad(pauseMenuPanel);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void QuitGame()

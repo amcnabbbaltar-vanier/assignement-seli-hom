@@ -19,7 +19,7 @@ public class CharacterAnimator : MonoBehaviour
     void Update()
     {
         animator.SetFloat("PlayerSpeed", rb.velocity.magnitude);
-        animator.SetBool("IsGrounded", movement.IsGrounded());
+        animator.SetBool("isGrounded", movement.SetIsGrounded());
 
         if(Input.GetKeyUp(KeyCode.Space))
         {             
