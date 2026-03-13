@@ -1,34 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
-public class StarComponent : MonoBehaviour
+public class firstLevelGoal : MonoBehaviour
 {
     private float starTimer = 0f;
-    private float starInterval = 2f;
-
+    private float starInterval = 2.5f;
+    public GameObject star;
+    private int targetScore = 4;
     // Start is called before the first frame update
     void Start()
     {
         
     }
-    public void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            GameManager.Instance.IncrementScore();
-            Destroy(gameObject);
-        }
-    }
+
     // Update is called once per frame
     void Update()
     {
         starTimer += Time.deltaTime;
 
-        if(starTimer >= starInterval)
+        if (starTimer >= starInterval)
         {
-            if (gameObject.activeSelf)
+            if (star.activeSelf)
             {
                 gameObject.SetActive(true);
             }
