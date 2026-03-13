@@ -51,7 +51,7 @@ public class PauseScript : MonoBehaviour
         //DontDestroyOnLoad(GameManager.Instance);
         GameManager.Instance.scoreText.text = "Score: 0";
         DontDestroyOnLoad(pauseMenuPanel);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("FirstLevel");
     }
     public void QuitGame()
     {
