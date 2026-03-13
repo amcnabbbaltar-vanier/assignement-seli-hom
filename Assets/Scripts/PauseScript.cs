@@ -43,6 +43,11 @@ public class PauseScript : MonoBehaviour
         isPaused = false;
     }
 
+    public void RestartGame()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     public void QuitGame()
     {
         //Application.Quit();

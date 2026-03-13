@@ -15,6 +15,11 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("FirstLevel");
     }
 
+    public void ExitGame()
+    {
+               Application.Quit();
+    }
+
     // Update is called once per frame
     void Update()
     {
