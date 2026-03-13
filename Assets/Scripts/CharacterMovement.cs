@@ -30,7 +30,7 @@ public class CharacterMovement : MonoBehaviour
     public bool IsGrounded => 
         Physics.Raycast(transform.position + Vector3.up * 0.01f, Vector3.down, groundCheckDistance);
   
-    public bool IsRunning => Input.GetButton("Run");
+    public bool IsRunning => Input.GetKey(KeyCode.RightShift);
 
     private void Awake() => InitializeComponents(); // Initialize Rigidbody and Camera reference
     // Start is called before the first frame update
@@ -73,7 +73,7 @@ public class CharacterMovement : MonoBehaviour
         moveZ = Input.GetAxis("Vertical");   // Get vertical movement input
 
         // Register a jump request if the player presses the Jump button
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             jumpRequest = true;
         }
