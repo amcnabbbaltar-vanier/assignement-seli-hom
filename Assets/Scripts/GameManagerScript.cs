@@ -8,11 +8,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
 
-    public Text scoreText;
-    private int score = 0;
-    private int targetScore = 4;
-
-
     private void Awake()
     {
         if (Instance == null)
@@ -26,7 +21,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public Text scoreText;
+    private int score = 0;
+    //private int targetScore = 4;
 
+    private float timer = 0f;
+    private bool timerRunning = false;
+
+
+    private void Update()
+    {
+        if (timerRunning)
+        {
+            timer += Time.deltaTime;
+        }
+    }
+
+
+    public void ResetScore()
+    {
+        score = 0;
+    }
     public void AddScore(int amount)
     {
         score += amount;
@@ -38,6 +53,10 @@ public class GameManager : MonoBehaviour
         AddScore(1);
     }
 
+    public int  GetTotalScore()
+    {
+        return score;
+    }
     private void UpdateUI()
     {
         if (scoreText != null)
@@ -46,7 +65,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void LoadNextScene()
+    public void StartTimer()
+    {
+               timer = 0f;
+        timerRunning = true;
+    }
+
+    public void StopTimer()
+    {
+        timerRunning = false;
+    }
+    public void ResumeTimer()
+    {
+               timerRunning = true;
+    }
+
+    public float GetTime()
+    {
+        return timer;
+    }
+
+    public void RestartThisLevel()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void LoadEndScene()
     {
 
         SceneManager.LoadScene("VictoryScene");

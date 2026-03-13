@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class PauseScript : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuPanel;
-    
+
+
     private bool isPaused = false;
 
 
@@ -29,6 +30,7 @@ public class PauseScript : MonoBehaviour
 
     public void PauseGame()
     {
+        GameManager.Instance.StopTimer();
         pauseMenuPanel.SetActive(true);
 
         Time.timeScale = 0f;
@@ -38,6 +40,7 @@ public class PauseScript : MonoBehaviour
 
     public void ResumeGame()
     {
+        GameManager.Instance.ResumeTimer();
         pauseMenuPanel.SetActive(false);
 
         Time.timeScale = 1.0f;
@@ -47,10 +50,12 @@ public class PauseScript : MonoBehaviour
 
     public void RestartGame()
     {
+        //isPaused = false;
         Time.timeScale = 1.0f;
         //DontDestroyOnLoad(GameManager.Instance);
-        GameManager.Instance.scoreText.text = "Score: 0";
-        DontDestroyOnLoad(pauseMenuPanel);
+        GameManager.Instance.ResetScore();
+        GameManager.Instance.StartTimer();
+        //DontDestroyOnLoad(pauseMenuPanel);
         SceneManager.LoadScene("FirstLevel");
     }
     public void QuitGame()

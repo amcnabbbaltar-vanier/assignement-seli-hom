@@ -13,6 +13,7 @@ public class CharacterAnimator : MonoBehaviour
         animator = GetComponent<Animator>();
         movement = GetComponent<CharacterMovement>();
         rb = GetComponent<Rigidbody>();
+        GameManager.Instance.StartTimer();
     }
 
     // Update is called once per frame
