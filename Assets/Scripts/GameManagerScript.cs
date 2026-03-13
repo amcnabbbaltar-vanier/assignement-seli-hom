@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     private float timer = 0f;
     private bool timerRunning = false;
 
+    public Text healthText;
+    private int lives = 3;
 
     private void Update()
     {
@@ -63,6 +65,10 @@ public class GameManager : MonoBehaviour
         {
             scoreText.text = $"Score: {score}";
         }
+        if (healthText.text != null)
+        {
+            healthText.text = $"Health: {lives}";
+        }
     }
 
     public void StartTimer()
@@ -85,8 +91,28 @@ public class GameManager : MonoBehaviour
         return timer;
     }
 
+    public void LoseLife()
+    {
+        lives -= 1;
+        if (lives <= 0)
+        {
+            Debug.Log("Lives Finished! :(( Try Again ! :D");
+            RestartThisLevel();
+        }
+        UpdateUI(); 
+        //TotalLivesLeft();
+    }
+
+    public int TotalLivesLeft()
+    {
+        Debug.Log("Lives Left: " + lives);
+        return lives;
+    }
+
     public void RestartThisLevel()
     {
+        lives = 3;
+        ResetScore();
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
