@@ -18,7 +18,8 @@ public class StarComponent : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             GameManager.Instance.IncrementScore();
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
     // Update is called once per frame

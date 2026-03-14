@@ -18,7 +18,7 @@ public class firstLevelGoal : MonoBehaviour
     {
         int currentScore = GameManager.Instance.GetTotalScore();
         Debug.Log("Current Score: " + currentScore);
-        if (currentScore >= 4)
+        if (currentScore >= 6)
         {
             Debug.Log("Score: " + GameManager.Instance.GetTotalScore());
             //starTimer += Time.deltaTime;

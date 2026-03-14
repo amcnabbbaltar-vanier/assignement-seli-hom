@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StarScript : MonoBehaviour
 {
-    public GameObject[] stars;
+    public List<GameObject> stars;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,17 +22,15 @@ public class StarScript : MonoBehaviour
 
     }
 
-
     private IEnumerator StarTimer(GameObject star)
     {
         while (true)
         {
             yield return new WaitForSeconds(0.5f); // visible for 3 seconds
-            //foreach (GameObject star in stars)
-            //{
+            if (star != null) { 
                 star.SetActive(!star.activeSelf);
-            //}
-
         }
+
+    }
     }
 }

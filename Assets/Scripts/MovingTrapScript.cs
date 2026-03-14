@@ -17,14 +17,8 @@ public class MovingTrapScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-      if (!movingRight)
-        {
-            MoveRight();
-        }
-        else
-        {
-            MoveLeft();
-        }
+       Vector3 direction = movingRight ? Vector3.right : Vector3.left;
+        rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -36,24 +30,17 @@ public class MovingTrapScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Wall"))
         {
-          movingRight = !movingRight;
+            Debug.Log("Collided with wall, changing direction");
+            movingRight = !movingRight;
         }
     }
 
-    private void MoveLeft()
+    private void OnTriggerEnter(Collider other)
     {
-        movingRight = false;
-        rb.MovePosition(rb.position + Vector3.left * moveSpeed * Time.fixedDeltaTime);
-
+        if (other.CompareTag("Wall"))
+        {
+            Debug.Log("Entered wall trigger, changing direction");
+            movingRight = !movingRight;
+        }
     }
-
-    private void MoveRight()
-    {
-        movingRight = true;
-        rb.MovePosition(rb.position + Vector3.right * moveSpeed * Time.fixedDeltaTime);
-
-    }
-
-
-
 }
