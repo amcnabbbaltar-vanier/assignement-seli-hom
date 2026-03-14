@@ -8,7 +8,7 @@ public class StarScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        stars = GameObject.FindGameObjectsWithTag("Star");
+        //stars = GameObject.FindGameObjectsWithTag("Star");
         foreach (GameObject star in stars)
         {
              StartCoroutine(StarTimer(star));
@@ -27,7 +27,7 @@ public class StarScript : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(4f); // visible for 3 seconds
+            yield return new WaitForSeconds(0.5f); // visible for 3 seconds
             //foreach (GameObject star in stars)
             //{
                 star.SetActive(!star.activeSelf);

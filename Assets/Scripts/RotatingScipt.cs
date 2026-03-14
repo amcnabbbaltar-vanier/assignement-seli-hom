@@ -11,7 +11,13 @@ public class RotatingScipt : MonoBehaviour
     {
      rb = GetComponent<Rigidbody>();
     }
-
+     private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+                GameManager.Instance.LoseLife();
+            }
+        }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -20,8 +26,5 @@ public class RotatingScipt : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        GameManager.Instance.LoseLife();
-    }
+   
 }

@@ -37,4 +37,15 @@ public class CharacterAnimator : MonoBehaviour
 
         }
     }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.gameObject.tag == "Star")
+    //    {
+    //        GameManager.Instance.IncrementScore();
+    //    }
+    //    if(other.gameObject.tag == "Trap")
+    //    {
+    //        GameManager.Instance.LoseLife();
+    //    }
+    //}
 }

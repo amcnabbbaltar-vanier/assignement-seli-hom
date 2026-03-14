@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class MovingTrapScript : MonoBehaviour
 {
+    public bool movingRight = true;
+    private float moveSpeed = 2f;
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.Translate(Vector3.left * Time.deltaTime);
+      if (!movingRight)
+        {
+            MoveRight();
+        }
+        else
+        {
+            MoveLeft();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -23,5 +33,27 @@ public class MovingTrapScript : MonoBehaviour
         {
             GameManager.Instance.LoseLife();
         }
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+          movingRight = !movingRight;
+        }
     }
+
+    private void MoveLeft()
+    {
+        movingRight = false;
+        rb.MovePosition(rb.position + Vector3.left * moveSpeed * Time.fixedDeltaTime);
+
+    }
+
+    private void MoveRight()
+    {
+        movingRight = true;
+        rb.MovePosition(rb.position + Vector3.right * moveSpeed * Time.fixedDeltaTime);
+
+    }
+
+
+
 }

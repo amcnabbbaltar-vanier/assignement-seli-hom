@@ -21,8 +21,8 @@ public class ThirdLevelGoal : MonoBehaviour
         {
             Debug.Log("Score: " + GameManager.Instance.GetTotalScore());
             //starTimer += Time.deltaTime;
-
-            SceneManager.LoadScene("VictoryScene");
+            GameManager.Instance.StopTimer();
+            GameManager.Instance.LoadEndScene();
 
         }
     }

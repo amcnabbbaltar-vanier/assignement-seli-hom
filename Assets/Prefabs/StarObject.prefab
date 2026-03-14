@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 355801355719144640}
   - component: {fileID: 3095842752570747608}
   - component: {fileID: 4574928638098735488}
+  - component: {fileID: 298215440107228133}
   m_Layer: 0
   m_Name: StarObject
   m_TagString: Star
@@ -132,4 +133,16 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!114 &298215440107228133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2663906313155258534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 023b08fa33c2ea04b9f76ef3b98122f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

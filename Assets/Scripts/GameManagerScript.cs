@@ -66,16 +66,19 @@ public class GameManager : MonoBehaviour
         {
             scoreText.text = $"Score: {score}";
         }
-        if (healthText.text != null)
+        if (healthText != null)
         {
-            healthText.text = $"Health: {lives}";
+            healthText.text = $"Health: {TotalLivesLeft()}";
         }
     }
 
     public void StartTimer()
     {
-               timer = 0f;
-        timerRunning = true;
+        if (!timerRunning)
+        {
+          timerRunning = true;
+        }
+          
     }
 
     public void StopTimer()
@@ -95,6 +98,7 @@ public class GameManager : MonoBehaviour
     public void LoseLife()
     {
         lives -= 1;
+        Debug.Log("Ouch! You lost a life. Lives left: " + lives);
         if (lives <= 0)
         {
             Debug.Log("Lives Finished! :(( Try Again ! :D");
@@ -127,6 +131,24 @@ public class GameManager : MonoBehaviour
     {
 
         SceneManager.LoadScene("VictoryScene");
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // find UI elements in the new scene
+        scoreText = GameObject.Find("scoreText")?.GetComponent<Text>();
+        healthText = GameObject.Find("levesText")?.GetComponent<Text>();
+        UpdateUI();
     }
 }
 
