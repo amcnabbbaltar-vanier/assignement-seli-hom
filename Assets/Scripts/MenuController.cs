@@ -17,7 +17,7 @@ public class MenuController : MonoBehaviour
 
     public void ExitGame()
     {
-               Application.Quit();
+      Application.Quit();
     }
 
     // Update is called once per frame

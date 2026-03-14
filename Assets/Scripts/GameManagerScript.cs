@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
     public void RestartThisLevel()
     {
         lives = 3;
-        ResetScore();
+        //ResetScore();
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

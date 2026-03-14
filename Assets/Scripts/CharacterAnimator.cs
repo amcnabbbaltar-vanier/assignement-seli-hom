@@ -24,7 +24,8 @@ public class CharacterAnimator : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            animator.SetTrigger("doFlip");
+            if (movement.SetIsGrounded())
+                animator.SetTrigger("doFlip");
         }
 
         if (Input.GetKey(KeyCode.RightShift))
@@ -36,6 +37,8 @@ public class CharacterAnimator : MonoBehaviour
             animator.SetBool("IsRunning", false);
 
         }
+
+
     }
     //private void OnTriggerEnter(Collider other)
     //{

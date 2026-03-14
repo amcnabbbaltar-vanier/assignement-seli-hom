@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovingTrapScript : MonoBehaviour
 {
     public bool movingRight = true;
-    private float moveSpeed = 2f;
+    public float moveSpeed = 2f;
     private Rigidbody rb;
 
     // Start is called before the first frame update

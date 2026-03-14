@@ -17,7 +17,7 @@ public class ThirdLevelGoal : MonoBehaviour
         int currentScore = GameManager.Instance.GetTotalScore(); //Current score should be at lest 8
         //so we need to add to 12 to get to 8 for the next level
         Debug.Log("Current Score: " + currentScore);
-        if (currentScore >= 12)
+        if (currentScore >= 16)
         {
             Debug.Log("Score: " + GameManager.Instance.GetTotalScore());
             //starTimer += Time.deltaTime;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovingTrapManager : MonoBehaviour
 {
-    public GameObject[] movingTraps;
+    public List<GameObject> movingTraps;
     float timer = 0f;
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,7 @@ public class MovingTrapManager : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        for(int i = 0; i < movingTraps.Length; i++)
+        for(int i = 0; i < movingTraps.Count; i++)
         {
             if (timer >= 4f)
             {
