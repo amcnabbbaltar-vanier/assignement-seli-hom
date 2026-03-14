@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public Text healthText;
     private int lives = 3;
 
+
     private void Update()
     {
         if (timerRunning)
@@ -115,6 +116,11 @@ public class GameManager : MonoBehaviour
         ResetScore();
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public float GetTotalTime()
+    {
+        return timer;
     }
 
     public void LoadEndScene()
