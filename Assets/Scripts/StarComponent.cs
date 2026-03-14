@@ -24,19 +24,19 @@ public class StarComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        starTimer += Time.deltaTime;
+        //starTimer += Time.deltaTime;
 
-        if(starTimer >= starInterval)
-        {
-            if (gameObject.activeSelf)
-            {
-                gameObject.SetActive(true);
-            }
-            else
-            {
-                gameObject.SetActive(false);
-            }
-            starTimer = 0f;
-        }
+        //if(starTimer >= starInterval)
+        //{
+        //    if (gameObject.activeSelf)
+        //    {
+        //        gameObject.SetActive(true);
+        //    }
+        //    else
+        //    {
+        //        gameObject.SetActive(false);
+        //    }
+        //    starTimer = 0f;
+        //}
     }
 }

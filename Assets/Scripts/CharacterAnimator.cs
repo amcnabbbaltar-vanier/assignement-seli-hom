@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterAnimator : MonoBehaviour
 {
     private Animator animator;
-    private CharacterMovement movement; 
+    private CharacterMovement movement;
     private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -22,10 +22,19 @@ public class CharacterAnimator : MonoBehaviour
         animator.SetFloat("PlayerSpeed", rb.velocity.magnitude);
         animator.SetBool("IsGrounded", movement.SetIsGrounded());
 
-        if(Input.GetKeyUp(KeyCode.Space))
-        {             
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
             animator.SetTrigger("doFlip");
         }
 
+        if (Input.GetKey(KeyCode.RightShift))
+        {
+            animator.SetBool("IsRunning", true);
+        }
+        else
+        {
+            animator.SetBool("IsRunning", false);
+
+        }
     }
 }

@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class TrapScript : MonoBehaviour
 {
-    private float interval = 3f;
-    private float levelTimer = 0f;
+    //[SerializeField] private GameObject trap;
+    //private float interval = 3f;
+    //private float levelTimer = 0f;
     // Start is called before the first frame update
     void Start()
     {
-
+        //StartCoroutine(TrapTimer());
     }
     public void OnCollisionEnter(Collision collision)
     {
@@ -24,31 +25,10 @@ public class TrapScript : MonoBehaviour
 
     private void Update()
     {
-        StartCoroutine(TrapTimer());
+   
     }
 
 
-    private IEnumerator TrapTimer()
-    {
-        while (true)
-        {
-            levelTimer += Time.deltaTime;
-            if(levelTimer >= interval)
-            {
-              if (gameObject.activeSelf)
-                {
-                    gameObject.SetActive(false);
-                    levelTimer = 0f;
-                }
-              else
-                {
-                    gameObject.SetActive(true);
-                    levelTimer = 0f;
-                }
-            }
-          
-        }
-    }
 
 }
 

@@ -10,7 +10,10 @@ public class PauseScript : MonoBehaviour
 
     private bool isPaused = false;
 
-
+    void Start()
+    {
+        pauseMenuPanel.SetActive(false);
+    }
 
     // Update is called once per frame
     void Update()
