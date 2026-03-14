@@ -5,9 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class firstLevelGoal : MonoBehaviour
 {
-    private float starTimer = 0f;
-    private float starInterval = 2.5f;
-    private int targetScore = 4;
+    
+    //private int targetScore = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +16,15 @@ public class firstLevelGoal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.Instance.GetTotalScore() >= targetScore)
+        int currentScore = GameManager.Instance.GetTotalScore();
+        Debug.Log("Current Score: " + currentScore);
+        if (currentScore >= 4)
         {
+            Debug.Log("Score: " + GameManager.Instance.GetTotalScore());
             //starTimer += Time.deltaTime;
-            if (starTimer >= starInterval)
-            {
-                SceneManager.LoadScene("SecondLevel");
-            }
+            
+            SceneManager.LoadScene("SecondLevel");
+            
         }
     }
 }
