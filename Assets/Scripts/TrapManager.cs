@@ -5,11 +5,11 @@ using UnityEngine.UIElements;
 
 public class TrapManager : MonoBehaviour
 {
-    public GameObject[] traps;
+    public List<GameObject> traps;
     // Start is called before the first frame update
     void Start()
     {
-        traps = GameObject.FindGameObjectsWithTag("Trap");
+        //traps = GameObject.FindGameObjectsWithTag("Trap");
       
         foreach (GameObject trap in traps)
         {
@@ -29,11 +29,12 @@ public class TrapManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(2f); // visible for 3 seconds
-            //foreach (GameObject trap in traps)
-            //{
+            if (trap != null)
+            {
+                Debug.Log("Trap active: " + trap.activeSelf);
                 trap.SetActive(!trap.activeSelf);
-            //}
-
         }
+
+    }
     }
 }
