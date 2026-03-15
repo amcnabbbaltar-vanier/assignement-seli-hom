@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     private float timer = 0f;
     private bool timerRunning = false;
 
+    public Text healthText;
+    private int lives = 3;
+
 
     private void Update()
     {
@@ -63,12 +66,19 @@ public class GameManager : MonoBehaviour
         {
             scoreText.text = $"Score: {score}";
         }
+        if (healthText != null)
+        {
+            healthText.text = $"Health: {TotalLivesLeft()}";
+        }
     }
 
     public void StartTimer()
     {
-               timer = 0f;
-        timerRunning = true;
+        if (!timerRunning)
+        {
+          timerRunning = true;
+        }
+          
     }
 
     public void StopTimer()
@@ -85,16 +95,60 @@ public class GameManager : MonoBehaviour
         return timer;
     }
 
+    public void LoseLife()
+    {
+        lives -= 1;
+        Debug.Log("Ouch! You lost a life. Lives left: " + lives);
+        if (lives <= 0)
+        {
+            Debug.Log("Lives Finished! :(( Try Again ! :D");
+            RestartThisLevel();
+        }
+        UpdateUI(); 
+        //TotalLivesLeft();
+    }
+
+    public int TotalLivesLeft()
+    {
+        Debug.Log("Lives Left: " + lives);
+        return lives;
+    }
+
     public void RestartThisLevel()
     {
+        lives = 3;
+        //ResetScore();
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public float GetTotalTime()
+    {
+        return timer;
     }
 
     public void LoadEndScene()
     {
 
         SceneManager.LoadScene("VictoryScene");
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // find UI elements in the new scene
+        scoreText = GameObject.Find("scoreText")?.GetComponent<Text>();
+        healthText = GameObject.Find("levesText")?.GetComponent<Text>();
+        UpdateUI();
     }
 }
 

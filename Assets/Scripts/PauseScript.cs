@@ -10,7 +10,10 @@ public class PauseScript : MonoBehaviour
 
     private bool isPaused = false;
 
-
+    void Start()
+    {
+        pauseMenuPanel.SetActive(false);
+    }
 
     // Update is called once per frame
     void Update()
@@ -53,10 +56,13 @@ public class PauseScript : MonoBehaviour
         //isPaused = false;
         Time.timeScale = 1.0f;
         //DontDestroyOnLoad(GameManager.Instance);
-        GameManager.Instance.ResetScore();
+        // GameManager.Instance.ResetScore();
+        //GameManager.Instance.ResetLives();
         GameManager.Instance.StartTimer();
+        GameManager.Instance.RestartThisLevel();
+       
         //DontDestroyOnLoad(pauseMenuPanel);
-        SceneManager.LoadScene("FirstLevel");
+        //SceneManager.LoadScene("FirstLevel");
     }
     public void QuitGame()
     {

@@ -7,13 +7,14 @@ public class DisplayScript : MonoBehaviour
 {
     [Header("UI References")]
     public Text scoreText;
-    public Text livesText;
+    public Text healthText;
     public Text timerText;
     // Start is called before the first frame update
     void Start()
     {
         GameManager.Instance.StartTimer();
         UpdateScore();
+        UpdateLives();
     }
 
     // Update is called once per frame
@@ -35,11 +36,13 @@ public class DisplayScript : MonoBehaviour
         }
     }
 
-    public void UpdateLives(int livesLeft)
+    public void UpdateLives()
     {
-        if(livesText != null)
+        //int livesLeft = GameManager.Instance.TotalLivesLeft();
+        if (healthText != null)
         {
-            livesText.text = "Lives: " + livesLeft;
+            healthText.text = "Health: " + 
+               GameManager.Instance.TotalLivesLeft();
         }
     }
 }

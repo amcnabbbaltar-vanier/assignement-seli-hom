@@ -23,7 +23,7 @@ public class CharacterMovement : MonoBehaviour
 
     // Input variables
     private float moveX; // Stores horizontal movement input (A/D or Left/Right Arrow)
-    private float moveZ; // Stores vertical movement input (W/S or Up/Down Arrow)
+    //private float moveZ; // Stores vertical movement input (W/S or Up/Down Arrow)
     private bool jumpRequest; // Flag to check if the player requested a jump
     private Vector3 moveDirection; // Stores the calculated movement direction
 
@@ -70,7 +70,7 @@ public class CharacterMovement : MonoBehaviour
     private void RegisterInput()
     {
         moveX = Input.GetAxis("Horizontal"); // Get horizontal movement input
-        moveZ = Input.GetAxis("Vertical");   // Get vertical movement input
+        //moveZ = Input.GetAxis("Vertical");   // Get vertical movement input no vertical input needed
 
         // Register a jump request if the player presses the Jump button
         if (Input.GetKeyUp(KeyCode.Space))
@@ -92,7 +92,7 @@ public class CharacterMovement : MonoBehaviour
         // If the camera is not assigned, move based on world space
         if (!cameraTransform)
         {
-            moveDirection = new Vector3(moveX, 0, moveZ).normalized;
+            moveDirection = new Vector3(moveX, 0).normalized;
         }
         else
         {
@@ -109,7 +109,7 @@ public class CharacterMovement : MonoBehaviour
             right.Normalize();
 
             // Calculate movement direction relative to the camera orientation
-            moveDirection = (forward * moveZ + right * moveX).normalized;
+            moveDirection = (forward  + right * moveX).normalized;
         }
     }
 
@@ -145,7 +145,7 @@ public class CharacterMovement : MonoBehaviour
         Vector3 newVelocity = new Vector3(
             moveDirection.x * speed * speedMultiplier, 
             rb.velocity.y, // Preserve the current Y velocity to maintain gravity effects
-            moveDirection.z * speed * speedMultiplier
+            0
         );
 
         rb.velocity = newVelocity; // Set the Rigidbody's velocity to move the character
