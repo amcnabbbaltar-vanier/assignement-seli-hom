@@ -17,7 +17,7 @@ public class VictoryScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float totalTime = GameManager.Instance.GetTotalTime()/60;
+        float totalTime = GameManager.Instance.GetTotalTime();
         if (finalTime.text != null)
         {
             finalTime.text = "Final Time: " + totalTime.ToString();

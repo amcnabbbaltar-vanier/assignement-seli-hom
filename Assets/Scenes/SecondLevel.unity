@@ -596,6 +596,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c52c6254e119684b9ec40aefea46e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &676061159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 293403542141181883, guid: 9327db4a486136645a77b2d5e5895b0e, type: 3}
+  m_PrefabInstance: {fileID: 4014678274599538606}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &698021635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1476,6 +1481,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5978735616529082188, guid: 89284e915bab6b5408267878a0021528, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 4014678274599538607}
     - target: {fileID: 6873674162667821038, guid: 89284e915bab6b5408267878a0021528, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2375,8 +2384,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 293403542141181883, guid: 9327db4a486136645a77b2d5e5895b0e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4014678274599538611}
   m_SourcePrefab: {fileID: 100100000, guid: 9327db4a486136645a77b2d5e5895b0e, type: 3}
+--- !u!114 &4014678274599538607 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1186280188799216324, guid: 9327db4a486136645a77b2d5e5895b0e, type: 3}
+  m_PrefabInstance: {fileID: 4014678274599538606}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676061159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f188286ef6f4de438461e99982ba925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4014678274599538611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676061159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc405955d07562a48b155fe9b6947093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityHere: 0
 --- !u!1001 &4983556925358703024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2389,6 +2425,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedBoost
       objectReference: {fileID: 0}
+    - target: {fileID: 4986925491817352070, guid: 98083f34ed66997488ea35f0b6bf082b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 4014678274599538607}
     - target: {fileID: 7128736931540713997, guid: 98083f34ed66997488ea35f0b6bf082b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2

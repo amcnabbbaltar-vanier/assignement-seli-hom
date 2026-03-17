@@ -12,7 +12,7 @@ public class EndScript : MonoBehaviour
     }
     public void BackToMenu()
     {
-        SceneManager.LoadScene("MainMenuScene");
+        SceneManager.LoadScene(0);
     }
 
     public void QuitApplication()

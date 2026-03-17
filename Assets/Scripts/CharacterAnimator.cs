@@ -7,7 +7,7 @@ public class CharacterAnimator : MonoBehaviour
     private Animator animator;
     private CharacterMovement movement;
     private Rigidbody rb;
-    public float velocityHere;
+    //public float velocityHere;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +21,7 @@ public class CharacterAnimator : MonoBehaviour
     void Update()
     {
         Debug.Log("Velocity here: " + rb.velocity.magnitude);
-        velocityHere = rb.velocity.magnitude;
+        //velocityHere = rb.velocity.magnitude;
         animator.SetFloat("PlayerSpeed", rb.velocity.magnitude);
         animator.SetBool("IsGrounded", movement.SetIsGrounded());
 
@@ -62,15 +62,23 @@ public class CharacterAnimator : MonoBehaviour
     //    }
     //}
 
-    private float PleaseDebug()
-    {
-        return velocityHere;
-    }
+    //private float PleaseDebug()
+    //{
+    //    return velocityHere;
+    //}
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Collided with an objectf!!");
         if (collision.gameObject.tag == "Wall")
         {
             GameManager.Instance.RestartThisLevel();
         }
+
+        if(collision.gameObject.tag == "Boost")
+        {
+            Debug.Log("Boost found and collided");
+        }
     }
+
+
 }

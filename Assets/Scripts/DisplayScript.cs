@@ -26,6 +26,7 @@ public class DisplayScript : MonoBehaviour
         timerText.text = string.Format("Time: {0:00}:{1:00}", minutes, seconds);
 
         UpdateScore();
+        UpdateLives();
     }
 
     public void UpdateScore()

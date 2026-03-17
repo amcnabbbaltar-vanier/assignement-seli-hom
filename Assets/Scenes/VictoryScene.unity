@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finalTime: {fileID: 554697842}
-  finalScore: {fileID: 0}
+  finalScore: {fileID: 1053933508}
 --- !u!1 &704578705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,7 +1058,8 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1177422779}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2826169462455185879, guid: 70ab1d1930e819c47af2cff53bfb23ce, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

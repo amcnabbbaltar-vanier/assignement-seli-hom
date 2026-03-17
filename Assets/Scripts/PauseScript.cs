@@ -68,6 +68,6 @@ public class PauseScript : MonoBehaviour
     {
         //Application.Quit();
 
-        SceneManager.LoadScene("MainMenuScene");
+        SceneManager.LoadScene(0);
     }
 }

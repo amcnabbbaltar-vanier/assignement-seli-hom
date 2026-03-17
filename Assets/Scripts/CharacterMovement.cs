@@ -16,7 +16,7 @@ public class CharacterMovement : MonoBehaviour
     public float speedMultiplier = 1.0f; // Additional multiplier for character speed ( WINK WINK )
     public float jumpMultiplier = 1.0f;
     [Header("Anim values")]
-    public float groundSpeed; // Speed value used for animations
+    public float groundSpeed = 1.0f; // Speed value used for animations
 
     private Rigidbody rb;              // Reference to the character's Rigidbody component
     private Transform cameraTransform; // Reference to the main camera's transform
