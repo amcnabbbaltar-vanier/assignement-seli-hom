@@ -7,6 +7,7 @@ public class CharacterAnimator : MonoBehaviour
     private Animator animator;
     private CharacterMovement movement;
     private Rigidbody rb;
+    public float velocityHere;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,13 +20,21 @@ public class CharacterAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(rb.velocity.magnitude);
+        velocityHere = rb.velocity.magnitude;
         animator.SetFloat("PlayerSpeed", rb.velocity.magnitude);
         animator.SetBool("IsGrounded", movement.SetIsGrounded());
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            if (movement.SetIsGrounded())
+            if (!movement.SetIsGrounded())
+            {
                 animator.SetTrigger("doFlip");
+            }
+            else
+            {
+                //movement.maxJumpHoldTime = Time.time;
+            }
         }
 
         if (Input.GetKey(KeyCode.RightShift))
@@ -40,6 +49,7 @@ public class CharacterAnimator : MonoBehaviour
 
 
     }
+
     //private void OnTriggerEnter(Collider other)
     //{
     //    if(other.gameObject.tag == "Star")
@@ -51,4 +61,16 @@ public class CharacterAnimator : MonoBehaviour
     //        GameManager.Instance.LoseLife();
     //    }
     //}
+
+    private float PleaseDebug()
+    {
+        return velocityHere;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            GameManager.Instance.RestartThisLevel();
+        }
+    }
 }

@@ -10,7 +10,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float rotationSpeed = 10f;   // Speed at which the character rotates
 
     [Header("Jump Settings")]
-    [SerializeField] private float jumpForce = 5f;        // Jump force applied to the character
+    [SerializeField] private float jumpForce = 7f;        // Jump force applied to the character
     [SerializeField] private float groundCheckDistance = 1.1f; // Distance to check for ground contact (Raycast)
     public float maxJumpHoldTime = 3f;
     public float speedMultiplier = 1.0f; // Additional multiplier for character speed ( WINK WINK )
@@ -70,10 +70,11 @@ public class CharacterMovement : MonoBehaviour
     private void RegisterInput()
     {
         moveX = Input.GetAxis("Horizontal"); // Get horizontal movement input
+        //moveX = Input.GetKey(KeyCode.LeftArrow) ? -1f : Input.GetKey(KeyCode.RightArrow) ? 1f : 0f; // Get horizontal movement input
         //moveZ = Input.GetAxis("Vertical");   // Get vertical movement input no vertical input needed
-
+        
         // Register a jump request if the player presses the Jump button
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.UpArrow))
         {
             jumpRequest = true;
         }
@@ -141,7 +142,9 @@ public class CharacterMovement : MonoBehaviour
         float speed = IsRunning ? baseRunSpeed : baseWalkSpeed; // Determine speed based on whether the character is running or walking
 
         groundSpeed = (moveDirection != Vector3.zero) ? speed : 0f; // Update ground speed for animations
-    
+
+        //Debug.Log("moveDirection" + moveDirection);
+        //Debug.Log("movex" + moveX);
         Vector3 newVelocity = new Vector3(
             moveDirection.x * speed * speedMultiplier, 
             rb.velocity.y, // Preserve the current Y velocity to maintain gravity effects

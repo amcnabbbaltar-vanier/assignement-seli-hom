@@ -14,16 +14,14 @@ public class ThirdLevelGoal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int currentScore = GameManager.Instance.GetTotalScore(); //Current score should be at lest 8
-        //so we need to add to 12 to get to 8 for the next level
-        Debug.Log("Current Score: " + currentScore);
-        if (currentScore >= 16)
-        {
-            Debug.Log("Score: " + GameManager.Instance.GetTotalScore());
-            //starTimer += Time.deltaTime;
-            GameManager.Instance.StopTimer();
-            GameManager.Instance.LoadEndScene();
+        //int currentScore = GameManager.Instance.GetTotalScore(); //Current score should be at lest 8
+        ////so we need to add to 12 to get to 8 for the next level
+        //Debug.Log("Current Score: " + currentScore);
+        //if (currentScore >= 16)
+        //{
+        //    Debug.Log("Score: " + GameManager.Instance.GetTotalScore());
+        //    //starTimer += Time.deltaTime;
 
-        }
+        //}
     }
 }

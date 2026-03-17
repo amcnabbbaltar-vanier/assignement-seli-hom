@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class StarComponent : MonoBehaviour
 {
-    private float starTimer = 0f;
-    private float starInterval = 2f;
+    //private float starTimer = 0f;
+    //private float starInterval = 2f;
 
     // Start is called before the first frame update
     void Start()

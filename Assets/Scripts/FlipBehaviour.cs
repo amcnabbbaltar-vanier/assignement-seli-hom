@@ -8,6 +8,11 @@ public class FlipBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.applyRootMotion = true;
+        Rigidbody rb = animator.GetComponent<Rigidbody>();
+        if(rb != null )
+        {
+            rb.velocity = Vector3.zero;
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -16,15 +16,15 @@ public class firstLevelGoal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int currentScore = GameManager.Instance.GetTotalScore();
-        Debug.Log("Current Score: " + currentScore);
-        if (currentScore >= 6)
-        {
-            Debug.Log("Score: " + GameManager.Instance.GetTotalScore());
-            //starTimer += Time.deltaTime;
-            
-            SceneManager.LoadScene("SecondLevel");
-            
-        }
+        //int currentScore = GameManager.Instance.GetTotalScore();
+        //Debug.Log("Current Score: " + currentScore);
+        //if (currentScore >= 6)
+        //{
+        //    Debug.Log("Score: " + GameManager.Instance.GetTotalScore());
+        //    starTimer += Time.deltaTime;
+
+        //    SceneManager.LoadScene("SecondLevel");
+
+        //}
     }
 }

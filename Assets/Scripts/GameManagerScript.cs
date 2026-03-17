@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     private int lives = 3;
 
 
+
     private void Update()
     {
         if (timerRunning)
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     public void IncrementScore()
     {
-        AddScore(1);
+        AddScore(50);
     }
 
     public int  GetTotalScore()
@@ -97,11 +98,12 @@ public class GameManager : MonoBehaviour
 
     public void LoseLife()
     {
-        lives -= 1;
-        Debug.Log("Ouch! You lost a life. Lives left: " + lives);
+        lives = lives - 1;
+        //Debug.Log("Ouch! You lost a life. Lives left: " + lives);
         if (lives <= 0)
         {
-            Debug.Log("Lives Finished! :(( Try Again ! :D");
+            //Debug.Log("Lives Finished! :(( Try Again ! :D");
+            lives = 3;
             RestartThisLevel();
         }
         UpdateUI(); 
@@ -110,7 +112,9 @@ public class GameManager : MonoBehaviour
 
     public int TotalLivesLeft()
     {
-        Debug.Log("Lives Left: " + lives);
+        //CharacterAnimator ca = new CharacterAnimator();
+        ////Debug.Log("Lives Left: " + lives);
+        //Debug.Log("Velocity Magnitude: " + ca.velocityHere);
         return lives;
     }
 

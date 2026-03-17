@@ -30,7 +30,7 @@ public class MovingTrapScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Wall"))
         {
-            Debug.Log("Collided with wall, changing direction");
+            //Debug.Log("Collided with wall, changing direction");
             movingRight = !movingRight;
         }
     }
@@ -39,7 +39,7 @@ public class MovingTrapScript : MonoBehaviour
     {
         if (other.CompareTag("Wall"))
         {
-            Debug.Log("Entered wall trigger, changing direction");
+            //Debug.Log("Entered wall trigger, changing direction");
             movingRight = !movingRight;
         }
     }

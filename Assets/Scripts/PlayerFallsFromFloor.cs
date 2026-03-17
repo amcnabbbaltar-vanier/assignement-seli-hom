@@ -16,11 +16,12 @@ public class PlayerFallsFromFloor : MonoBehaviour
         
     }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            GameManager.Instance.RestartThisLevel();
-        }
-    }
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        GameManager.Instance.RestartThisLevel();
+    //    }
+    //}
+
 }
