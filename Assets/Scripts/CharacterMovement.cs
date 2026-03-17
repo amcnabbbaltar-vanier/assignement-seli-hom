@@ -14,7 +14,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float groundCheckDistance = 1.1f; // Distance to check for ground contact (Raycast)
     public float maxJumpHoldTime = 3f;
     public float speedMultiplier = 1.0f; // Additional multiplier for character speed ( WINK WINK )
-
+    public float jumpMultiplier = 1.0f;
     [Header("Anim values")]
     public float groundSpeed; // Speed value used for animations
 
@@ -48,7 +48,7 @@ public class CharacterMovement : MonoBehaviour
     private void FixedUpdate()
     {
         HandleMovement(); // Handle character movement based on input
-        //HandleJump();  // Apply jump force if jump was requested
+        HandleJump();  // Apply jump force if jump was requested
     }
 
     private void InitializeComponents()
@@ -123,7 +123,7 @@ public class CharacterMovement : MonoBehaviour
     {
         if (jumpRequest && IsGrounded)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); // Apply an instant upward force for jumping
+            rb.AddForce(Vector3.up * jumpForce * jumpMultiplier, ForceMode.Impulse); // Apply an instant upward force for jumping
             jumpRequest = false; // Reset the jump request flag
         }
     }

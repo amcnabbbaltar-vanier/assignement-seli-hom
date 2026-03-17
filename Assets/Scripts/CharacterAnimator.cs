@@ -20,7 +20,7 @@ public class CharacterAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(rb.velocity.magnitude);
+        Debug.Log("Velocity here: " + rb.velocity.magnitude);
         velocityHere = rb.velocity.magnitude;
         animator.SetFloat("PlayerSpeed", rb.velocity.magnitude);
         animator.SetBool("IsGrounded", movement.SetIsGrounded());
@@ -33,7 +33,7 @@ public class CharacterAnimator : MonoBehaviour
             }
             else
             {
-                //movement.maxJumpHoldTime = Time.time;
+                movement.maxJumpHoldTime = Time.time;
             }
         }
 
