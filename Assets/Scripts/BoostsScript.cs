@@ -25,21 +25,28 @@ public class BoostsScript : MonoBehaviour
             if(gameObject.name == "SpeedBoost")
             {
                 timer += Time.deltaTime;
-                while (timer < 5f) {
-                    player.jumpMultiplier = 1.5f;
+               
+                player.jumpMultiplier = 1.5f;
+                if(timer >= 5f)
+                {
+                  timer = 0f;
+                  player.jumpMultiplier = 1f;
                 }
-                timer = 0f;
-                player.jumpMultiplier = 1f;
+              
             }
             if(gameObject.name == "JumpBoost")
             {
                 timer += Time.deltaTime;
-                while (timer < 5f)
+                //while (timer < 5f)
+                //{
+                //    player.speedMultiplier = 1.5f;
+                //}
+                if (timer >= 5f)
                 {
-                    player.speedMultiplier = 1.5f;
+                 timer = 0f;
+                 player.speedMultiplier = 1f;
                 }
-                timer = 0f;
-                player.speedMultiplier = 1f;
+               
             }
             Destroy(gameObject);
         }
